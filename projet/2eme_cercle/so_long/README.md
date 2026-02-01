@@ -1,0 +1,1 @@
+A little game that involves collecting all the collectibles so you can then enter the church.
