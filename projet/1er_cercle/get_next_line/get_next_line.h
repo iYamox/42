@@ -6,7 +6,7 @@
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 22:46:07 by amary             #+#    #+#             */
-/*   Updated: 2025/11/25 19:15:15 by amary            ###   ########.fr       */
+/*   Updated: 2026/02/04 17:43:53 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <stddef.h>
 # include <unistd.h>
 # include <fcntl.h>
+#include <stdio.h>
+
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 3
 # endif

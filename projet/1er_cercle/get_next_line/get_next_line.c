@@ -6,12 +6,12 @@
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 22:55:29 by amary             #+#    #+#             */
-/*   Updated: 2025/11/25 19:15:59 by amary            ###   ########.fr       */
+/*   Updated: 2026/02/04 17:45:52 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
+#include <stdio.h>
 char	*ft_read(int fd, char *tmp)
 {
 	char	*buffer;
@@ -104,22 +104,22 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-// #include <stdio.h>
-// int    main(int argc, char **argv)
-// {
-//     int    fd;
-//     char *line;
+#include <stdio.h>
+int    main(int argc, char **argv)
+{
+    int    fd;
+    char *line;
 
-//     if (argc != 2)
-//         return (write(2, "Aucun fichier n'a été renseigné\n", 34), 1);
-//     fd = open(argv[1], O_RDONLY);
-//     line = get_next_line(fd);
-//     while (line)
-//     {
-//         printf("%s", line);
-//         free(line);
-//         line = get_next_line(fd);
-//     }
-//     free(line);
-//     return (0);
-// }
+    if (argc != 2)
+        return (write(2, "Aucun fichier n'a été renseigné\n", 34), 1);
+    fd = open(argv[1], O_RDONLY);
+    line = get_next_line(fd);
+    while (line)
+    {
+        printf("%s", line);
+        free(line);
+        line = get_next_line(fd);
+    }
+    free(line);
+    return (0);
+}
