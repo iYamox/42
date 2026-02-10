@@ -1,23 +1,29 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main (int ac, char **av)
+int main(int ac, char **av)
 {
     int n = ac - 2;
-    int res = atoi (av[1]);
+    int res = atoi(av[1]);
+    int mask = 0;
 
-    for (int mask = 0; mask < (1 << n); mask++)
+    while (mask < (1 << n))
     {
         int sum = 0;
         int first = 0;
-        for (int i = 0; i < n; i++)
+        int i = 0;
+
+        while (i < n)
         {
             if ((mask >> i) & 1)
-                sum += atoi(av[2 + i]); 
+                sum += atoi(av[2 + i]);
+            i++;
         }
+
         if (sum == res)
         {
-            for (int i = 0; i < n; i++)
+            i = 0;
+            while (i < n)
             {
                 if ((mask >> i) & 1)
                 {
@@ -26,8 +32,11 @@ int main (int ac, char **av)
                     printf("%d", atoi(av[2 + i]));
                     first = 3;
                 }
+                i++;
             }
             printf("\n");
         }
+        mask++;
     }
+    return 0;
 }

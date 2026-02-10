@@ -33,6 +33,8 @@ char *get_next_line(int fd)
         if(pos >= readed)
         {
             readed = read(fd, buf, BUFFER_SIZE);
+			if (readed == -1)
+				return (NULL);
             pos = 0;
             if (readed == 0)
                 break;

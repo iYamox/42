@@ -11,6 +11,7 @@
 # define BUFFER_SIZE 3
 #endif
 
+int		ft_strlen(char *str);
 char	*get_next_line(int fd);
 char	*ft_strdup(char *str);
 
