@@ -6,7 +6,7 @@
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 11:05:51 by amary             #+#    #+#             */
-/*   Updated: 2026/02/09 12:21:04 by amary            ###   ########.fr       */
+/*   Updated: 2026/02/10 21:49:14 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,20 +72,22 @@ char	*get_next_line(int fd)
 	return (ft_strdup(line));
 }
 
-// int	main(int argc, char **argv)
-// {
-// 	int		fd;
-// 	char	*line;
-// 	if (argc != 2)
-// 		return (write(2, "Arguments error\n", 17), 1);
-// 	fd = open(argv[1], O_RDONLY);
-// 	line = get_next_line(fd);
-// 	while (line)
-// 	{
-// 		printf("%s", line);
-// 		free(line);
-// 		line = get_next_line(fd);
-// 	}
-// 	close(fd);
-// 	return (0);
-// }
+int	main(int argc, char **argv)
+{
+	int		fd;
+	char	*line;
+	if (argc != 2)
+		return (write(2, "Arguments error\n", 17), 1);
+	fd = open(argv[1], O_RDONLY);
+	if (fd == -1)
+		perror("In fonction main fd error because");
+	line = get_next_line(fd);
+	while (line)
+	{
+		printf("%s", line);
+		free(line);
+		line = get_next_line(fd);
+	}
+	close(fd);
+	return (0);
+}

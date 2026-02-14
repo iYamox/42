@@ -6,7 +6,7 @@
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 14:17:55 by amary             #+#    #+#             */
-/*   Updated: 2026/01/23 15:42:14 by amary            ###   ########.fr       */
+/*   Updated: 2026/02/12 15:02:29 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ char	*check(char *cmd_name, char **envp)
 	}
 	return (NULL);
 }
+
 
 char	*find_cmd(char **envp, char **cmd_name)
 {
