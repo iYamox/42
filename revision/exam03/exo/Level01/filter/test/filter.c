@@ -5,17 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/18 13:50:29 by amary             #+#    #+#             */
-/*   Updated: 2026/02/18 14:03:46 by amary            ###   ########.fr       */
+/*   Created: 2026/02/23 14:02:25 by amary             #+#    #+#             */
+/*   Updated: 2026/02/23 14:13:35 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
+# define STDIN 0
 
 int	ft_strlen(char *str)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (str[i])
@@ -23,12 +22,12 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-int	ft_strncmp(char *s1, char *s2, int size)
+int	ft_strncmp(char *s1, char *s2, int n)
 {
 	int i;
 
 	i = 0;
-	while (s1[i] && s2[i] && i < size)
+	while (s1[i] && s2[i] && i < n)
 	{
 		if (s1[i] != s2[i])
 			return (1);
@@ -37,36 +36,38 @@ int	ft_strncmp(char *s1, char *s2, int size)
 	return (0);
 }
 
+#include <unistd.h>
+
 int	main(int argc, char **argv)
 {
-	int	i;
-	int	len;
-	int j;
-	int	readed;
-	char line[70000];
 	char c;
+	char line[70000];
+	int	readed;
+	int	i;
+	int	j;
+	int	len;
 
 	if (argc == 2)
 	{
-		readed = read(STDIN_FILENO, &c, 1);
+		readed = read(STDIN, &c, 1);
+		if (readed == 0)
+			return (0);
 		if (readed == -1)
 			return (1);
-		else if (readed == 0)
-			return (0);
 		i = 0;
 		while (readed)
 		{
 			line[i++] = c;
-			readed = read(STDIN_FILENO, &c, 1);
-			if (readed == -1)
-				return (1);
+			readed = read(STDIN, &c, 1);
+				if (readed == -1)
+			return (1);
 		}
 		line[i] = '\0';
 		len = ft_strlen(argv[1]);
 		if (len == 0)
 			return (1);
 		i = 0;
-		while (line[i])\
+		while (line[i])
 		{
 			if (ft_strncmp(argv[1], &line[i], len) == 0)
 			{
@@ -81,9 +82,7 @@ int	main(int argc, char **argv)
 			else
 				write(1, &line[i++], 1);
 		}
-	}	
+	}
 	else
-		return (1);
-
-	return (0);
+		return(1);
 }

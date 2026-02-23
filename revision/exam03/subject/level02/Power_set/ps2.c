@@ -1,29 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ps2.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/23 15:11:26 by amary             #+#    #+#             */
+/*   Updated: 2026/02/23 15:11:28 by amary            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(int ac, char **av)
+int main (int ac, char **av)
 {
     int n = ac - 2;
-    int res = atoi(av[1]);
-    int mask = 0;
+    int res = atoi (av[1]);
 
-    while (mask < (1 << n))
+    for (int mask = 0; mask < (1 << n); mask++)
     {
         int sum = 0;
         int first = 0;
-        int i = 0;
-
-        while (i < n)
+        for (int i = 0; i < n; i++)
         {
             if ((mask >> i) & 1)
-                sum += atoi(av[2 + i]);
-            i++;
+                sum += atoi(av[2 + i]); 
         }
-
         if (sum == res)
         {
-            i = 0;
-            while (i < n)
+            for (int i = 0; i < n; i++)
             {
                 if ((mask >> i) & 1)
                 {
@@ -32,11 +38,8 @@ int main(int ac, char **av)
                     printf("%d", atoi(av[2 + i]));
                     first = 3;
                 }
-                i++;
             }
             printf("\n");
         }
-        mask++;
     }
-    return 0;
 }

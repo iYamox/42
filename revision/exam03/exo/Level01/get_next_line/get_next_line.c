@@ -21,15 +21,16 @@ int	ft_strlen(char *str)
 		i++;
 	return (i);
 }
-
-
 char *ft_strdup(char *s)
 {
-    int i = 0;
+    int i;
+	char *dst;
+
+	i = 0;
     while (s[i])
         i++;
-    char *dup = malloc(sizeof(char) * i + 1);
-    if (!dup)
+    dst = malloc((i + 1) * sizeof(char));
+    if (!dst)
         return NULL;
     i = 0;
     while (s[i])
@@ -43,9 +44,9 @@ char *ft_strdup(char *s)
 
 char	*get_next_line(int fd)
 {
+	int = 0;
 	static int	pos = 0;
 	static int	readed = 0;
-	int			i = 0;
 	static char	buffer[BUFFER_SIZE];
 	char		line[70000];
 
