@@ -6,7 +6,7 @@
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 15:19:19 by amary             #+#    #+#             */
-/*   Updated: 2026/05/07 16:05:08 by amary            ###   ########.fr       */
+/*   Updated: 2026/05/07 16:23:45 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,9 @@ void		*philosopher_routine(void *arg);
 void		philo_eat(t_philo *philo);
 void		precise_usleep(long long time, t_data *data);
 void		write_status(char *str, t_philo *philo);
-int			check_death(t_data *data);
+int			is_philo_dead(t_philo *philo);
+void		*monitor_routine(void *arg);
+int			check_simulation_stop(t_data *data);
+int			check_all_ate(t_data *data);
 
 #endif

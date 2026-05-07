@@ -6,13 +6,13 @@
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 15:42:27 by amary             #+#    #+#             */
-/*   Updated: 2026/05/07 15:50:19 by amary            ###   ########.fr       */
+/*   Updated: 2026/05/07 16:25:27 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/philo.h"
 
-static int	init_mutexes(t_data *data)
+int	init_mutexes(t_data *data)
 {
 	int	i;
 
@@ -33,24 +33,28 @@ static void	assign_forks(t_philo *philo)
 	philo->right_fork = philo->id % philo->data->nb_philos;
 }
 
-void	init_arg(t_data *data, int argc, char **argv)
+int	init_arg(t_data *data, int argc, char **argv)
 {
 	data->nb_philos = (int)ft_atoi_secure(argv[1]);
 	data->time_to_die = (int)ft_atoi_secure(argv[2]);
 	data->time_to_eat = (int)ft_atoi_secure(argv[3]);
 	data->time_to_sleep = (int)ft_atoi_secure(argv[4]);
-	return ;
+	data->nb_meals = -1;
+	if (argc == 6)
+		data->nb_meals = (int)ft_atoi_secure(argv[5]);
+	if (data->nb_philos < 1 || data->time_to_die < 0 || data->time_to_eat < 0
+		|| data->time_to_sleep < 0)
+		return (0);
+	if (argc == 6 && data->nb_meals <= 0)
+		return (0);
+	return (1);
 }
 
 int	init_all(t_data *data, int argc, char **argv)
 {
 	int	i;
 
-	init_arg(data, argc, argv);
-	data->nb_meals = -1;
-	if (argc == 6)
-		data->nb_meals = (int)ft_atoi_secure(argv[5]);
-	if (data->nb_philos < 1 || data->time_to_die < 0)
+	if (!init_arg(data, argc, argv))
 		return (0);
 	data->dead_flag = 0;
 	if (!init_mutexes(data))
@@ -64,6 +68,7 @@ int	init_all(t_data *data, int argc, char **argv)
 		data->philos[i].id = i + 1;
 		data->philos[i].data = data;
 		data->philos[i].meals_count = 0;
+		data->philos[i].last_meal = 0;
 		assign_forks(&data->philos[i]);
 	}
 	return (1);
