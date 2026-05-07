@@ -6,7 +6,7 @@
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 16:19:35 by amary             #+#    #+#             */
-/*   Updated: 2026/05/07 16:23:32 by amary            ###   ########.fr       */
+/*   Updated: 2026/05/07 17:24:16 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ int	check_all_ate(t_data *data)
 		return (0);
 	i = -1;
 	finished_eating = 0;
+	pthread_mutex_lock(&data->data_lock);
 	while (++i < data->nb_philos)
 	{
-		pthread_mutex_lock(&data->data_lock);
 		if (data->philos[i].meals_count >= data->nb_meals)
 			finished_eating++;
-		pthread_mutex_unlock(&data->data_lock);
 	}
+	pthread_mutex_unlock(&data->data_lock);
 	return (finished_eating == data->nb_philos);
 }
 

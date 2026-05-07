@@ -6,7 +6,7 @@
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 15:19:19 by amary             #+#    #+#             */
-/*   Updated: 2026/05/07 16:23:45 by amary            ###   ########.fr       */
+/*   Updated: 2026/05/07 16:35:42 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,13 @@ struct s_data
 
 long		ft_atoi_secure(char *str);
 long long	get_time_in_ms(void);
+int			check_death(t_data *data);
 
 /* ================ Initialisation ================ */
 
-void		init_arg(t_data *data, int argc, char **argv);
+int			init_arg(t_data *data, int argc, char **argv);
 int			init_all(t_data *data, int argc, char **argv);
+void		cleanup(t_data *data);
 
 /* ================ Simulation ================ */
 
