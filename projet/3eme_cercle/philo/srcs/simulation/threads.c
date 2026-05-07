@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   threads.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/03 10:46:19 by amary             #+#    #+#             */
-/*   Updated: 2026/05/07 15:54:03 by amary            ###   ########.fr       */
+/*   Created: 2026/05/07 15:55:14 by amary             #+#    #+#             */
+/*   Updated: 2026/05/07 16:03:52 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/philo.h"
+#include "../../include/philo.h"
 
-int	main(int argc, char **argv)
+int	start_simulation(t_data *data)
 {
-	t_data	data;
+	int	i;
 
-	if (argc != 5 && argc != 6)
-		return (printf("Error: Wrong number of arguments\n"), 1);
-	if (!init_all(&data, argc, argv))
-		return (printf("Error: Initialization failed\n"), 1);
-	printf("Initialisation réussie pour %d philosophes.\n", data.nb_philos);
-	return (0);
+	data->start_time = get_time_in_ms();
+	i = -1;
+	while (++i < data->nb_philos)
+	{
+		if (pthread_create(&data->philos[i].thread, NULL,
+				&philosopher_routine, &data->philos[i]))
+			return (0);
+	}
+	i = -1;
+	while (++i < data->nb_philos)
+		pthread_join(data->philos[i].thread, NULL);
+	return (1);
 }

@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   time_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/03 10:46:19 by amary             #+#    #+#             */
-/*   Updated: 2026/05/07 15:54:03 by amary            ###   ########.fr       */
+/*   Created: 2026/05/07 15:41:24 by amary             #+#    #+#             */
+/*   Updated: 2026/05/07 15:41:28 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/philo.h"
+#include "../../include/philo.h"
 
-int	main(int argc, char **argv)
+long long	get_time_in_ms(void)
 {
-	t_data	data;
+	struct timeval	tv;
 
-	if (argc != 5 && argc != 6)
-		return (printf("Error: Wrong number of arguments\n"), 1);
-	if (!init_all(&data, argc, argv))
-		return (printf("Error: Initialization failed\n"), 1);
-	printf("Initialisation réussie pour %d philosophes.\n", data.nb_philos);
-	return (0);
+	if (gettimeofday(&tv, NULL))
+		return (0);
+	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
 }
