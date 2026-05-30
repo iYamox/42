@@ -6,12 +6,13 @@
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 22:55:29 by amary             #+#    #+#             */
-/*   Updated: 2026/02/04 17:45:52 by amary            ###   ########.fr       */
+/*   Updated: 2026/05/28 13:24:32 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <stdio.h>
+
 char	*ft_read(int fd, char *tmp)
 {
 	char	*buffer;

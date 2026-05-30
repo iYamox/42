@@ -1,46 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exo01.cpp                                          :+:      :+:    :+:   */
+/*   exo00.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/26 20:16:42 by amary             #+#    #+#             */
-/*   Updated: 2026/05/26 20:27:24 by amary            ###   ########.fr       */
+/*   Created: 2026/05/29 11:38:05 by amary             #+#    #+#             */
+/*   Updated: 2026/05/29 16:11:28 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putstr(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		write(1, &str[i++], 1);
-	return ;
-}
-
-void	ft_write_upper(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] >= 'a' && str[i] <= 'z')
-			str[i] -= 32;
-		i++;
-	}
-	ft_putstr(str);
-	return ;
-}
+#include <iostream>
 
 int	main(int argc, char **argv)
 {
-	if (argc == 2)
-		ft_write_upper(argv[1]);
+	int		j;
+	int		i;
+	char	c;
+
+	if (argc == 1)
+		return (std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE * " << std::endl, 0);
 	else
-		return (write(1, "Argument error\n", 16), 0);
+	{
+		j = 1;
+		while (argv[j])
+		{
+			i = 0;
+			while (argv[j][i])
+			{
+				c = std::toupper(argv[j][i]);
+				std::cout << (char)c;	
+				i++;
+			}
+			j++;
+		}
+	}
+	return (0);
 }

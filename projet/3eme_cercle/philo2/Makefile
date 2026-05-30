@@ -4,7 +4,7 @@ CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
 IFLAGS	= -I include
 
-SRCS	= srcs/main.c \
+SRCS	= main.c \
 		  srcs/initialisation/init.c \
 		  srcs/initialisation/cleanup.c \
 		  srcs/simulation/threads.c \
