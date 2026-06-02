@@ -6,7 +6,7 @@
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 12:19:18 by amary             #+#    #+#             */
-/*   Updated: 2026/05/29 18:58:46 by amary            ###   ########.fr       */
+/*   Updated: 2026/06/01 14:52:37 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,7 @@ int	main(void)
 			phone_book.ADD(contact.name, contact.last_name, contact.nick_name, contact.phone_number, contact.darkest_secret);
 		}
 		else if (command == "SEARCH")
-		{
 			phone_book.search();
-		}
 		else
 			std::cout << "Bad command" << std::endl;
 	}
