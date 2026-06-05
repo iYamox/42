@@ -6,7 +6,7 @@
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 14:11:57 by amary             #+#    #+#             */
-/*   Updated: 2026/06/02 15:39:46 by amary            ###   ########.fr       */
+/*   Updated: 2026/06/02 15:42:39 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,19 @@ int	Car::get_fuel()
 
 void	Car::set_brand(std::string new_brand)
 {
-	Car::brand = new_brand;
+	brand = new_brand;
 	return;
 }
 
 void	Car::set_speed(int new_speed)
 {
-	Car::speed = new_speed;
+	speed = new_speed;
 	return ;
 }
 
 void	Car::set_fuel(int new_fuel)
 {
-	Car::fuel = new_fuel;
+	fuel = new_fuel;
 	return ;
 }
 
@@ -74,11 +74,11 @@ void	Car::accelerate(int amount)
 
 void	Car::displayStatus()
 {
-	std::cout << "Brand of car is " << Car::get_brand() << std::endl;
-	std::cout << "Speed of the car is " << Car::get_speed() <<std::endl;
+	std::cout << "Brand of car is " << get_brand() << std::endl;
+	std::cout << "Speed of the car is " << get_speed() <<std::endl;
 	if (Car::fuel <= 0)
 		std::cout << "Fuel is empty" << std::endl;
 	else
-		std::cout << "Fuel in the car is " << Car::fuel << std::endl;
+		std::cout << "Fuel in the car is " << get_fuel() << std::endl;
 	return ;
 }

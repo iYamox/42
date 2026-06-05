@@ -6,7 +6,7 @@
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 12:19:18 by amary             #+#    #+#             */
-/*   Updated: 2026/06/01 14:52:37 by amary            ###   ########.fr       */
+/*   Updated: 2026/06/05 14:15:40 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ void	get_arg(t_contact_stock	*contact)
 
 int	main(void)
 {
-	PhoneBook phone_book;
-	std::string	command;
+	PhoneBook		phone_book;
+	std::string		command;
 	t_contact_stock	contact;
 	
 	while(1)
