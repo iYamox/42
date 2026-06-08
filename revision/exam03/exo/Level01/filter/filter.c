@@ -6,7 +6,7 @@
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 14:50:20 by amary             #+#    #+#             */
-/*   Updated: 2026/02/09 16:10:20 by amary            ###   ########.fr       */
+/*   Updated: 2026/06/08 15:02:18 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,13 @@ int	ft_strncmp(char *s1, char *s2, int n)
 	int	i;
 
 	i = 0;
-	while (s1[i] && s2[i] && s1[i] == s2[i] && i != n - 1)
+	while (s1[i] && s2[i] && i < n)
+	{
+		if (s1[i] != s2[i])
+			return (1);
 		i++;
-	return (s1[i] - s2[i]);
+	}
+	return (0);
 }
 
 int	main(int argc, char **argv)
@@ -53,14 +57,14 @@ int	main(int argc, char **argv)
 		if (readed == -1)
 			return (perror("Error"), 1);
 		if (readed == 0)
-			return (0);
+			return (1);
 		i = 0;
 		while (readed > 0)
 		{
-			str[i++] = c;
-			readed = read(STDIN, &c, 1);
-			if (readed == -1)
-				return (perror("Error: "), 1);
+   			str[i++] = c;
+    		readed = read(STDIN, &c, 1);
+    		if (readed == -1)
+        		return (perror("Error: "), 1);
 		}
 		str[i] = '\0';
 		i = 0;
