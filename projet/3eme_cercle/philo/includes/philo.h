@@ -6,7 +6,7 @@
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 16:35:09 by amary             #+#    #+#             */
-/*   Updated: 2026/06/11 17:23:01 by amary            ###   ########.fr       */
+/*   Updated: 2026/06/11 19:03:44 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ typedef struct s_table
 	int					is_dead;
 	long				start_time;
 	t_philo				*philos;
-	int					full;
+	int					full; // full = si un philo a mangez tout ses repas
 	pthread_mutex_t		full_mutex; // Pour le cas ou argv = 6
 }						t_table;
 

@@ -6,7 +6,7 @@
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 19:27:02 by amary             #+#    #+#             */
-/*   Updated: 2026/06/11 17:23:28 by amary            ###   ########.fr       */
+/*   Updated: 2026/06/11 19:10:04 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ long	get_current_time(void)
 	return ((current_time.tv_sec * 1000) + (current_time.tv_usec / 1000));
 }
 
+// if duration = Pour eviter une boucle infinie
 void	ft_wait(t_philo *philo)
 {
 	long	start;

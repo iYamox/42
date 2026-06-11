@@ -6,7 +6,7 @@
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 19:21:48 by amary             #+#    #+#             */
-/*   Updated: 2026/06/11 16:23:53 by amary            ###   ########.fr       */
+/*   Updated: 2026/06/11 18:43:59 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ int	one_philo(t_table *table)
 		ft_printf(table, &table->philos[0], "died");
 		return (1);
 	}
-	return (0);
+	else
+		return (0);
 }
 
 int	ft_start(t_table *table)
