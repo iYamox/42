@@ -6,7 +6,7 @@
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:00:26 by amary             #+#    #+#             */
-/*   Updated: 2026/06/01 14:52:19 by amary            ###   ########.fr       */
+/*   Updated: 2026/06/14 17:19:49 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ void	PhoneBook::search()
 	}
 	std::cout << "Enter index : ";
 	std::getline(std::cin, input);
+	if (std::cin.eof())
+		return ;
 	while (1)
 	{
 		if (input.empty() || input.size() > 1 || input[0] < '0' || input[0] > '8')
@@ -70,6 +72,8 @@ void	PhoneBook::search()
 			std::cout << "Invalid index" << std::endl;
 			std::cout << "Enter index : ";
 			std::getline(std::cin, input);
+			if (std::cin.eof())
+				return ;
 			continue ;
 		}
 		else

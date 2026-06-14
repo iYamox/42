@@ -6,7 +6,7 @@
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 12:19:18 by amary             #+#    #+#             */
-/*   Updated: 2026/06/05 14:15:40 by amary            ###   ########.fr       */
+/*   Updated: 2026/06/14 17:18:28 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	get_arg(t_contact_stock	*contact)
 	{
 		std::cout << "Name : "; 
 		std::getline(std::cin, contact->name);
+		if (std::cin.eof())
+			return ;
 		if (contact->name.empty())
 			std::cout << "Argument not valid" << std::endl;
 		else
@@ -27,6 +29,8 @@ void	get_arg(t_contact_stock	*contact)
 	{
 		std::cout << "Last Name : "; 
 		std::getline(std::cin, contact->last_name);
+		if (std::cin.eof())
+			return ;
 		if (contact->last_name.empty())
 			std::cout << "Argument not valid" << std::endl;
 		else
@@ -36,6 +40,8 @@ void	get_arg(t_contact_stock	*contact)
 	{
 		std::cout << "Nick Name : "; 
 		std::getline(std::cin, contact->nick_name);
+		if (std::cin.eof())
+			return ;
 		if (contact->nick_name.empty())
 			std::cout << "Argument not valid" << std::endl;
 		else
@@ -45,6 +51,8 @@ void	get_arg(t_contact_stock	*contact)
 	{
 		std::cout << "Phone Number : "; 
 		std::getline(std::cin, contact->phone_number);
+		if (std::cin.eof())
+			return ;
 		if (contact->phone_number.empty())
 			std::cout << "Argument not valid" << std::endl;
 		else if (contact->phone_number.size() < 10)
@@ -56,6 +64,8 @@ void	get_arg(t_contact_stock	*contact)
 	{
 		std::cout << "Darkest Secret : "; 
 		std::getline(std::cin, contact->darkest_secret);
+		if (std::cin.eof())
+			return ;
 		if (contact->darkest_secret.empty())
 			std::cout << "Argument not valid" << std::endl;
 		else
@@ -74,16 +84,23 @@ int	main(void)
 	{
 		std::cout << "Enter a command : ";
 		std::getline(std::cin, command);
-		
+		if (std::cin.eof())
+			break ;
 		if (command == "EXIT")
 			break ;
 		else if (command == "ADD")
 		{
 			get_arg(&contact);
+			if (std::cin.eof())
+				return (0);
 			phone_book.ADD(contact.name, contact.last_name, contact.nick_name, contact.phone_number, contact.darkest_secret);
 		}
 		else if (command == "SEARCH")
+		{
 			phone_book.search();
+			if (std::cin.eof())
+				return (0);
+		}
 		else
 			std::cout << "Bad command" << std::endl;
 	}
