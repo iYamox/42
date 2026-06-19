@@ -6,7 +6,7 @@
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:00:26 by amary             #+#    #+#             */
-/*   Updated: 2026/06/14 17:19:49 by amary            ###   ########.fr       */
+/*   Updated: 2026/06/19 12:37:10 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	PhoneBook::ADD(std::string name, std::string last_name, std::string nick_na
 	all_contact[i].set_phone_number(phone_name);
 	all_contact[i].set_darkest_secret(darkest_secret);
 	i++;
-	if (count <= 8)
+	if (count < 8)
 		count++;
 	return ;
 }

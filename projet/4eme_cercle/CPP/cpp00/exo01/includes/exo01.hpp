@@ -4,6 +4,7 @@
 # include <iostream>
 # include <iomanip>
 
+// Pour stocker lors de la boucle infini
 typedef struct s_contact_stock
 {
 	std::string	name;

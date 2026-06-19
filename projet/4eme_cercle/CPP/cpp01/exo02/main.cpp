@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/11 13:52:58 by amary             #+#    #+#             */
-/*   Updated: 2026/02/11 14:03:34 by amary            ###   ########.fr       */
+/*   Created: 2026/06/14 18:47:13 by amary             #+#    #+#             */
+/*   Updated: 2026/06/14 18:57:05 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <iostream>
 
-void	print_numbers(int n)
+int	main(void)
 {
-	for (int i = 1 ; i <= n ; ++i)
-		printf("%d\n", i);
-}
+	std::string	str = "HI THIS IS BRAIN";
+	std::string *stringPTR = &str;
+	std::string	&stringREF = str;
 
-int main(void)
-{
-	puts("====== Mon programme ======");
-	print_numbers(5);
+	std::cout << str << std::endl;
+	std::cout << "The string adress is " << &str << std::endl;
+	std::cout << "The memory adress held by stringPTR is " << *stringPTR << std::endl;
+	std::cout << "The memory adress held by stringREF " << stringREF << std::endl;
 	
 	return (0);
 }
