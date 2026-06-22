@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exo01.cpp                                          :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 12:19:18 by amary             #+#    #+#             */
-/*   Updated: 2026/06/19 12:53:51 by amary            ###   ########.fr       */
+/*   Updated: 2026/06/22 17:35:51 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	get_arg(t_contact_stock	*contact)
 		if (std::cin.eof())
 			return ;
 		if (contact->name.empty())
-			std::cout << "Argument not valid" << std::endl;
+			std::cout << "Argument is empty" << std::endl;
 		else
 			break;
 	}
@@ -32,7 +32,7 @@ void	get_arg(t_contact_stock	*contact)
 		if (std::cin.eof())
 			return ;
 		if (contact->last_name.empty())
-			std::cout << "Argument not valid" << std::endl;
+			std::cout << "Argument is empty" << std::endl;
 		else
 			break;
 	}
@@ -43,7 +43,7 @@ void	get_arg(t_contact_stock	*contact)
 		if (std::cin.eof())
 			return ;
 		if (contact->nick_name.empty())
-			std::cout << "Argument not valid" << std::endl;
+			std::cout << "Argument is empty" << std::endl;
 		else
 			break;
 	}
@@ -54,7 +54,7 @@ void	get_arg(t_contact_stock	*contact)
 		if (std::cin.eof())
 			return ;
 		if (contact->phone_number.empty())
-			std::cout << "Argument not valid" << std::endl;
+			std::cout << "Argument is empty" << std::endl;
 		else if (contact->phone_number.size() < 10)
 			std::cout << "Number phone error" << std::endl;
 		else
@@ -67,7 +67,7 @@ void	get_arg(t_contact_stock	*contact)
 		if (std::cin.eof())
 			return ;
 		if (contact->darkest_secret.empty())
-			std::cout << "Argument not valid" << std::endl;
+			std::cout << "Argument is empty" << std::endl;
 		else
 			break;
 	}
@@ -79,7 +79,7 @@ int	main(void)
 	PhoneBook		phone_book;
 	std::string		command;
 	t_contact_stock	contact;
-	
+
 	while(1)
 	{
 		std::cout << "Enter a command : ";

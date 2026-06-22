@@ -6,7 +6,7 @@
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:00:26 by amary             #+#    #+#             */
-/*   Updated: 2026/06/19 12:37:10 by amary            ###   ########.fr       */
+/*   Updated: 2026/06/22 17:40:11 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	PhoneBook::ADD(std::string name, std::string last_name, std::string nick_na
 
 void	display_column(std::string str)
 {
-	if ((int)str.size() > 10)
+	if ((int)str.size() > 10) // Pour que j'evite les chiffres negatifs
 		str = str.substr(0, 9) + ".";
 	std::cout << std::setw(10) << std::right << str << "|";
 }

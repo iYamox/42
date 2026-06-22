@@ -6,7 +6,7 @@
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 12:00:48 by amary             #+#    #+#             */
-/*   Updated: 2026/06/20 13:50:33 by amary            ###   ########.fr       */
+/*   Updated: 2026/06/22 16:45:04 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@ int	main(int argc, char **argv)
 			return (1);
 		fill_str(infiles, str);
 		pos = str.find(s1);
+		if (pos == std::string::npos)
+		{
+			std::cout << "No occurence find" << std::endl;
+			return (0);
+		}
 		while (pos != std::string::npos)
 		{
 			str.erase(pos, s1.size());

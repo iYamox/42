@@ -6,7 +6,7 @@
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 13:28:03 by amary             #+#    #+#             */
-/*   Updated: 2026/06/22 13:31:55 by amary            ###   ########.fr       */
+/*   Updated: 2026/06/22 16:52:41 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,12 @@ class Fixed
 
     public :
         Fixed();
-        // Constructor copy
-        // copy assignment operator overload
+        Fixed(const Fixed &copy);
+        Fixed &operator=(const Fixed &assign);
         ~Fixed();
-}
+        
+        int getRawBits(void);
+        void setRawBits(int const raw);
+};
 
 #endif

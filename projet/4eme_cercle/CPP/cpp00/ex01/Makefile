@@ -1,7 +1,10 @@
-NAME = megaphone
+NAME = My_Awesome_PhoneBook
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
-SRC = exo00.cpp
+SRC = PhoneBook.cpp \
+        utils/init/init_phonebook.cpp \
+        utils/init/init_contact.cpp \
+
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
