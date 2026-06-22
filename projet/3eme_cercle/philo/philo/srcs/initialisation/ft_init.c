@@ -6,7 +6,7 @@
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 17:12:07 by amary             #+#    #+#             */
-/*   Updated: 2026/06/18 14:52:31 by amary            ###   ########.fr       */
+/*   Updated: 2026/06/22 11:48:43 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ int	ft_init_philo(t_table *table)
 	{
 		table->philos[j].id = j + 1;
 		table->philos[j].last_meal = 0;
+		table->philos[j].meal_count = 0;
+		table->philos[j].status = 0;
 		table->philos[j].fork_left = &table->forks[j];
 		table->philos[j].fork_right = &table->forks[(j + 1)
 			% table->number_of_philosophers];
@@ -88,6 +90,8 @@ int	ft_init_philo(t_table *table)
 int	ft_init(t_table *table)
 {
 	table->start_time = 0;
+	table->is_dead = 0;
+	table->full = 0;
 	if (!ft_init_fork(table))
 		return (0);
 	if (!ft_init_mutex(table))

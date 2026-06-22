@@ -6,7 +6,7 @@
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 15:42:10 by amary             #+#    #+#             */
-/*   Updated: 2026/06/11 17:23:49 by amary            ###   ########.fr       */
+/*   Updated: 2026/06/22 11:33:51 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ void	join_threads(t_table *table)
 	while (j < table->number_of_philosophers)
 	{
 		if (pthread_join(table->philos[j].thread, NULL) != 0)
-			continue ;
+			break ;
 		j++;
 	}
 	if (pthread_join(table->monitor, NULL) != 0)
 		return ;
+	return ;
 }
 
 int	create_threads(t_table *table)
