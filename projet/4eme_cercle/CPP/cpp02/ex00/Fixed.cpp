@@ -6,7 +6,7 @@
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 13:30:38 by amary             #+#    #+#             */
-/*   Updated: 2026/06/25 19:19:08 by amary            ###   ########.fr       */
+/*   Updated: 2026/06/29 15:02:19 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,26 @@
 Fixed::Fixed()
 {
     value = 0;
-	 std::cout << "Default constructor called\n" << std::endl;
+	std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &copy)
 {
-    value = copy.value; // ou *this = copy je sais pas
-	 std::cout << "copy constructor called\n" << std::endl;
+    value = copy.value;
+	std::cout << "copy constructor called\n" << std::endl;
+}
+
+Fixed	&Fixed::operator=(const Fixed &assign)
+{
+	this->value = assign.value;
+
+	std::cout << "assign constructor called" << std::endl;
+	return (*this);
 }
 
 int Fixed::getRawBits(void)
 {
-	std::cout << "getRawBits member function called\n" << std::endl;
+	std::cout << "getRawBits member function called" << std::endl;
     return (value);
 }
 
@@ -34,4 +42,9 @@ void Fixed::setRawBits(int const row)
 {
     value = row;
     return ;
+}
+
+Fixed::~Fixed()
+{
+	std::cout << "Destructor called" << std::endl;
 }

@@ -6,12 +6,11 @@
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 14:17:26 by amary             #+#    #+#             */
-/*   Updated: 2026/06/05 15:06:36 by amary            ###   ########.fr       */
+/*   Updated: 2026/06/29 15:03:54 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
-#include <unistd.h>
 
 int	main(void)
 {

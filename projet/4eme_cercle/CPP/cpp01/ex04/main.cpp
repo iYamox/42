@@ -6,7 +6,7 @@
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 12:00:48 by amary             #+#    #+#             */
-/*   Updated: 2026/06/22 16:45:04 by amary            ###   ########.fr       */
+/*   Updated: 2026/06/29 15:12:12 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	main(int argc, char **argv)
 		
 		std::string outfileName = infilesName + ".replace";
 	
-		std::ofstream outfile(outfileName.c_str()); // le c_str pour convertir en const char * 
+		std::ofstream outfile(outfileName.c_str()); // le c_str pour convertir en const char * sinon warning 
 		if (!outfile.is_open())
 		{
 			std::cout << "Outfile error" << std::endl;
