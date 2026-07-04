@@ -6,90 +6,11 @@
 /*   By: amkhelif <amkhelif@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 13:23:12 by amkhelif          #+#    #+#             */
-/*   Updated: 2026/06/25 15:00:18 by amkhelif         ###   ########.fr       */
+/*   Updated: 2026/07/03 15:37:20 by amkhelif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/includes.h"
-
- bool	is_valid_char(char c)
-{
-	if (c == '0' || c == '1' || c == ' ' || c == '\t' || c == 'N' || c == 'S'
-		|| c == 'E' || c == 'W')
-		return (true);
-	return (false);
-}
-
-bool	check_map_chars(t_info *info)
-{
-	int i;
-	int j;
-	int player;
-
-	i = 0;
-	player = 0;
-	while (info->map_final[i])
-	{
-		j = 0;
-		while (info->map_final[i][j])
-		{
-			if (!is_valid_char(info->map_final[i][j]))
-				return (print_error(ERROR_CHARACTER), true);
-			if (info->map_final[i][j] == 'N' || info->map_final[i][j] == 'S'
-				|| info->map_final[i][j] == 'E' || info->map_final[i][j] == 'W')
-			{
-				player++;
-				info->p_x = j;
-				info->p_y = i;
-				info->p_dir = info->map_final[i][j];
-			}
-			j++;
-		}
-		i++;
-	}
-	if (player != 1)
-		return (print_error(NUMBER_PLAYER), true);
-	return (false);
-}
-
-
-static bool	check_first_last_line(char *line)
-{
-	int	i;
-	int	has_wall;
-
-	i = 0;
-	has_wall = 0;
-	while (line[i])
-	{
-		if (line[i] != '1' && line[i] != ' ' && line[i] != '\t')
-			return (true);
-		if (line[i] == '1')
-			has_wall = 1;
-		i++;
-	}
-	if (!has_wall)
-		return (true);
-	return (false);
-}
-
-static bool	check_middle_line(char *line)
-{
-	int	i;
-	int	len;
-
-	i = 0;
-	while (line[i] == ' ' || line[i] == '\t')
-		i++;
-	if (line[i] != '1')
-		return (true);
-	len = ft_strlen(line) - 1;
-	while (len > i && (line[len] == ' ' || line[len] == '\t'))
-		len--;
-	if (line[len] != '1')
-		return (true);
-	return (false);
-}
 
 static bool	check_neighbors(t_info *info, int y, int x)
 {
@@ -100,15 +21,19 @@ static bool	check_neighbors(t_info *info, int y, int x)
 	if (y == 0 || y == last_line)
 		return (true);
 	len = ft_strlen(info->map_final[y - 1]);
-	if (x >= len || info->map_final[y - 1][x] == ' ' || info->map_final[y - 1][x] == '\t')
+	if (x >= len || info->map_final[y - 1][x] == ' ' || info->map_final[y
+		- 1][x] == '\t')
 		return (true);
 	len = ft_strlen(info->map_final[y + 1]);
-	if (x >= len || info->map_final[y + 1][x] == ' ' || info->map_final[y + 1][x] == '\t')
+	if (x >= len || info->map_final[y + 1][x] == ' ' || info->map_final[y
+		+ 1][x] == '\t')
 		return (true);
-	if (x == 0 || info->map_final[y][x - 1] == ' ' || info->map_final[y][x - 1] == '\t')
+	if (x == 0 || info->map_final[y][x - 1] == ' ' || info->map_final[y][x
+		- 1] == '\t')
 		return (true);
 	len = ft_strlen(info->map_final[y]);
-	if (x + 1 >= len || info->map_final[y][x + 1] == ' ' || info->map_final[y][x + 1] == '\t')
+	if (x + 1 >= len || info->map_final[y][x + 1] == ' ' || info->map_final[y][x
+		+ 1] == '\t')
 		return (true);
 	return (false);
 }
@@ -136,24 +61,49 @@ static bool	check_neighbors_all(t_info *info)
 	return (false);
 }
 
+static bool	flood_fill(char **map, int y, int x, int max_y)
+{
+	int	len;
+
+	if (y < 0 || y >= max_y)
+		return (true);
+	len = ft_strlen(map[y]);
+	if (x < 0 || x >= len)
+		return (true);
+	if (map[y][x] == ' ' || map[y][x] == '\t' || map[y][x] == '\r')
+		return (true);
+	if (map[y][x] == '1' || map[y][x] == 'V')
+		return (false);
+	map[y][x] = 'V';
+	if (flood_fill(map, y - 1, x, max_y) || flood_fill(map, y + 1, x, max_y)
+		|| flood_fill(map, y, x - 1, max_y) || flood_fill(map, y, x + 1, max_y))
+		return (true);
+	return (false);
+}
+
 bool	check_map_closed(t_info *info)
 {
+	int	max_y;
 	int	i;
-	int	last;
+	int	j;
 
-	last = len_map(info->map_final, 0) - 1;
-	if (check_first_last_line(info->map_final[0]))
+	max_y = len_map(info->map_final, 0);
+	if (check_neighbors_all(info))
+		return (print_error("Error\nMap is not closed correctly\n"), true);
+	if (flood_fill(info->map_final, info->p_y, info->p_x, max_y))
 		return (print_error("Error\nMap not closed \n"), true);
-	if (check_first_last_line(info->map_final[last]))
-		return (print_error("Error\nMap not closed \n"), true);
-	i = 1;
-	while (i < last)
+	i = 0;
+	while (info->map_final[i])
 	{
-		if (check_middle_line(info->map_final[i]))
-			return (print_error("Error\nMap not closed\n"), true);
+		j = 0;
+		while (info->map_final[i][j])
+		{
+			if (info->map_final[i][j] == 'V')
+				info->map_final[i][j] = '0';
+			j++;
+		}
 		i++;
 	}
-	if (check_neighbors_all(info))
-		return (print_error("Error\nMap not closed \n"), true);
+	info->map_final[info->p_y][info->p_x] = info->p_dir;
 	return (false);
-} 
+}

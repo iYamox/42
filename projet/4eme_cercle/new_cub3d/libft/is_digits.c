@@ -6,12 +6,11 @@
 /*   By: amkhelif <amkhelif@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 16:24:37 by amkhelif          #+#    #+#             */
-/*   Updated: 2026/06/23 16:29:04 by amkhelif         ###   ########.fr       */
+/*   Updated: 2026/07/03 12:02:27 by amkhelif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/includes.h"
-
 
 int	ft_isdigit(int c)
 {

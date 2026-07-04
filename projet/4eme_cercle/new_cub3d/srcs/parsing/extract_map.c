@@ -6,7 +6,7 @@
 /*   By: amkhelif <amkhelif@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 16:24:54 by amkhelif          #+#    #+#             */
-/*   Updated: 2026/06/25 13:26:58 by amkhelif         ###   ########.fr       */
+/*   Updated: 2026/07/01 16:55:41 by amkhelif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ bool	line_is_spaces(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] != ' ' && str[i] != '\t')
+		if (str[i] != ' ' && str[i] != '\t' && str[i] != '\r')
 			return (false);
 		i++;
 	}

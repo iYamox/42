@@ -6,12 +6,11 @@
 /*   By: amkhelif <amkhelif@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 13:24:42 by amkhelif          #+#    #+#             */
-/*   Updated: 2026/06/23 13:25:12 by amkhelif         ###   ########.fr       */
+/*   Updated: 2026/07/03 12:02:21 by amkhelif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/includes.h"
-
 
 int	ft_strncmp(const char *s1, const char *s2, int n)
 {

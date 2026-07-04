@@ -6,7 +6,7 @@
 /*   By: amkhelif <amkhelif@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 11:36:20 by amkhelif          #+#    #+#             */
-/*   Updated: 2026/06/23 12:48:43 by amkhelif         ###   ########.fr       */
+/*   Updated: 2026/07/03 12:02:15 by amkhelif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	size = ft_strlen(s1) + ft_strlen(s2) + 1;
 	str = malloc(size * sizeof(char));
 	if (str == NULL)
-	{
-		// free_all();
-	}
+		return (NULL);
 	while (s1 && s1[i])
 	{
 		str[j] = s1[i];
