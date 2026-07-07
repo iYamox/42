@@ -6,11 +6,11 @@
 /*   By: amkhelif <amkhelif@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 12:39:02 by amkhelif          #+#    #+#             */
-/*   Updated: 2026/07/03 15:15:51 by amkhelif         ###   ########.fr       */
+/*   Updated: 2026/07/06 13:14:21 by amkhelif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/includes.h"
+#include "../../includes/cub3D.h"
 
 int	free_all(t_info *info)
 {

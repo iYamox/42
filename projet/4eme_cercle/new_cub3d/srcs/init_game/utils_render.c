@@ -6,11 +6,11 @@
 /*   By: amkhelif <amkhelif@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 12:48:47 by amkhelif          #+#    #+#             */
-/*   Updated: 2026/07/03 17:58:50 by amkhelif         ###   ########.fr       */
+/*   Updated: 2026/07/06 13:08:21 by amkhelif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/includes.h"
+#include "../../includes/cub3D.h"
 
 int	get_pixel_color(int rgb[3])
 {
@@ -34,7 +34,7 @@ void	put_pixel_to_image(t_info *info, int x, int y, int color)
 	*(unsigned int *)pixel_ptr = color;
 }
 
-// calcul la hauteur du mur en fonction de la distance parcourue
+// calcul la hauteur du mur en fonction de la distance qui a parcouru 
 void	calculate_wall_dimensions(t_info *info)
 {
 	if (info->side == 0)

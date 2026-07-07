@@ -5,20 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/04 17:13:15 by amary             #+#    #+#             */
-/*   Updated: 2026/07/04 17:14:24 by amary            ###   ########.fr       */
+/*   Created: 2026/07/07 13:06:33 by amary             #+#    #+#             */
+/*   Updated: 2026/07/07 17:01:26 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "../includes/Fixed.hpp"
 
-int main( void )
+int main(void)
 {
 	Fixed a;
-	Fixed const b( 10 );
-	Fixed const c( 42.42f );
-	Fixed const d( b );
-	a = Fixed( 1234.4321f );
+	Fixed const b(10);
+	Fixed const c(42.42f);
+	Fixed const d(b);
+
+	a = Fixed(1234.4321f);
+	
 	std::cout << "a is " << a << std::endl;
 	std::cout << "b is " << b << std::endl;
 	std::cout << "c is " << c << std::endl;

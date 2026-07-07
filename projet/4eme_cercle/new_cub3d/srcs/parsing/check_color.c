@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/includes.h"
+#include "../../includes/cub3D.h"
 
 bool	valid_number(int rgb[3])
 {

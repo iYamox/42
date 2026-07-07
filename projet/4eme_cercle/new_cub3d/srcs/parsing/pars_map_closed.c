@@ -6,11 +6,11 @@
 /*   By: amkhelif <amkhelif@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 13:26:05 by amkhelif          #+#    #+#             */
-/*   Updated: 2026/07/03 15:37:49 by amkhelif         ###   ########.fr       */
+/*   Updated: 2026/07/06 13:13:55 by amkhelif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/includes.h"
+#include "../../includes/cub3D.h"
 
 static bool	check_neighbors(t_info *info, int y, int x)
 {

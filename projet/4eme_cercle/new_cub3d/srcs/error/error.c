@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/includes.h"
+#include "../../includes/cub3D.h"
 
 // function for print a message error
 void	print_error(char *str)

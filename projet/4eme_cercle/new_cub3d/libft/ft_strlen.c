@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/includes.h"
+#include "../includes/cub3D.h"
 
 int	ft_strlen(char *str)
 {

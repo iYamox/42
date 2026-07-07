@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/includes.h"
+#include "../../includes/cub3D.h"
 
 // S'active dès qu'on enfonce une touche : passe l'interrupteur à 1
 int	handle_key_press(int keycode, t_info *info)

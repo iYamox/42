@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/includes.h"
+#include "../includes/cub3D.h"
 
 char	*ft_strcpy(char *str)
 {

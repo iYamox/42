@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/includes.h"
+#include "../includes/cub3D.h"
 
 static int	count_word(char const *str, char c)
 {

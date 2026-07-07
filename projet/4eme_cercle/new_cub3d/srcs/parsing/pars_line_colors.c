@@ -6,11 +6,11 @@
 /*   By: amkhelif <amkhelif@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 16:22:13 by amkhelif          #+#    #+#             */
-/*   Updated: 2026/07/03 16:33:30 by amkhelif         ###   ########.fr       */
+/*   Updated: 2026/07/06 13:13:20 by amkhelif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/includes.h"
+#include "../../includes/cub3D.h"
 
 static void	fill_rgb(int *rgb, char **split)
 {
@@ -58,25 +58,32 @@ bool	extract_rgb(t_info *info)
 	found_f = 0;
 	while (info->map[i])
 	{
-		if (ft_strncmp(info->map[i], "C ", 2) == 0)
-		{
-			if (found_c)
-				return (print_error("Error\nDuplicate C color\n"), true);
-			if (convert_color(info, info->map[i] + 2, 0))
-				return (true);
-			found_c = 1;
-		}
-		else if (ft_strncmp(info->map[i], "F ", 2) == 0)
-		{
-			if (found_f)
-				return (print_error("Error\nDuplicate F color\n"), true);
-			if (convert_color(info, info->map[i] + 2, 1))
-				return (true);
-			found_f = 1;
-		}
+		if (extract_rgb_2(info, info->map[i], &found_c, &found_f))
+			return (true);
 		i++;
 	}
 	if (!found_c || !found_f)
 		return (print_error("Error\nMissing C or F color\n"), true);
+	return (false);
+}
+
+bool	extract_rgb_2(t_info *info, char *line, int *c, int *f)
+{
+	if (ft_strncmp(line, "C ", 2) == 0)
+	{
+		if (*c)
+			return (print_error("Error\nDuplicate C color\n"), true);
+		if (convert_color(info, line + 2, 0))
+			return (true);
+		*c = 1;
+	}
+	else if (ft_strncmp(line, "F ", 2) == 0)
+	{
+		if (*f)
+			return (print_error("Error\nDuplicate F color\n"), true);
+		if (convert_color(info, line + 2, 1))
+			return (true);
+		*f = 1;
+	}
 	return (false);
 }

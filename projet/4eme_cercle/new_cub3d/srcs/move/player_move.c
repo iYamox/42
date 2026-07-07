@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/includes.h"
+#include "../../includes/cub3D.h"
 
 // Vérifie si la position est valide
 static int	is_walkable(t_info *info, double x, double y)

@@ -6,11 +6,11 @@
 /*   By: amkhelif <amkhelif@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 13:26:03 by amkhelif          #+#    #+#             */
-/*   Updated: 2026/07/03 13:32:14 by amkhelif         ###   ########.fr       */
+/*   Updated: 2026/07/06 13:09:56 by amkhelif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/includes.h"
+#include "../../includes/cub3D.h"
 
 bool	extract_config(t_info *info)
 {
@@ -20,7 +20,7 @@ bool	extract_config(t_info *info)
 		return (true);
 	else if (extract_map(info))
 		return (true);
-	else if (check_map_chars(info, 0) || check_map_closed(info))
+	else if (check_map_chars(info, 0, 0) || check_map_closed(info))
 		return (true);
 	return (false);
 }

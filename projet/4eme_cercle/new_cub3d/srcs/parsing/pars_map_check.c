@@ -6,11 +6,11 @@
 /*   By: amkhelif <amkhelif@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 13:25:47 by amkhelif          #+#    #+#             */
-/*   Updated: 2026/07/03 13:34:14 by amkhelif         ###   ########.fr       */
+/*   Updated: 2026/07/06 13:10:04 by amkhelif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/includes.h"
+#include "../../includes/cub3D.h"
 
 bool	is_valid_char(char c)
 {
@@ -18,9 +18,8 @@ bool	is_valid_char(char c)
 		|| c == 'S' || c == 'E' || c == 'W');
 }
 
-bool	check_map_chars(t_info *info, int i)
+bool	check_map_chars(t_info *info, int i, int j)
 {
-	int	j;
 	int	player;
 
 	player = 0;

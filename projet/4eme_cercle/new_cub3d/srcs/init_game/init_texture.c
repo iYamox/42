@@ -6,15 +6,15 @@
 /*   By: amkhelif <amkhelif@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 12:42:07 by amkhelif          #+#    #+#             */
-/*   Updated: 2026/07/03 17:04:58 by amkhelif         ###   ########.fr       */
+/*   Updated: 2026/07/06 13:14:07 by amkhelif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/includes.h"
+#include "../../includes/cub3D.h"
 
 static void	init_single_texture(t_info *info, t_texture *tex, char *path);
 
-// charge les textures une par une 
+// charge les textures une par une
 void	load_textures(t_info *info)
 {
 	init_single_texture(info, &info->wall_textures[0], info->config.no_texture);

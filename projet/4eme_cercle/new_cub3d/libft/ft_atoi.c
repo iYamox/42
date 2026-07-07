@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/includes.h"
+#include "../includes/cub3D.h"
 
 int	ft_atoi(const char *nptr)
 {
-	int		i;
-	int		sign;
-	long	result;
+	int	i;
+	int	sign;
+	int	result;
 
 	i = 0;
 	sign = 1;
@@ -32,9 +32,7 @@ int	ft_atoi(const char *nptr)
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
 		result = result * 10 + (nptr[i] - '0');
-		if (result > 2147483647)
-			return (2147483647);
 		i++;
 	}
-	return ((int)(result * sign));
+	return (result * sign);
 }

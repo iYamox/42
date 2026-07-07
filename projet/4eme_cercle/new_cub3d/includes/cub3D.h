@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   includes.h                                         :+:      :+:    :+:   */
+/*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amkhelif <amkhelif@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 15:26:23 by amkhelif          #+#    #+#             */
-/*   Updated: 2026/07/03 15:16:22 by amkhelif         ###   ########.fr       */
+/*   Updated: 2026/07/06 13:21:20 by amkhelif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INCLUDES_H
-# define INCLUDES_H
+#ifndef CUB3D_H
+# define CUB3D_H
 
 # include "minilibx-linux/mlx.h"
 # include <fcntl.h>
@@ -143,6 +143,7 @@ void					calculate_wall_dimensions(t_info *info);
 int						get_texture_column(t_info *info, t_texture *tex, int x);
 void					put_pixel_to_image(t_info *info, int x, int y,
 							int color);
+bool					init_mlx_display_2(t_info *info);
 int						ft_strlen(char *str);
 char					*ft_strjoin(char *s1, char *s2);
 void					rotate_player(t_info *info, double angle);
@@ -166,7 +167,7 @@ bool					extract_texture(t_info *info);
 bool					extract_rgb(t_info *info);
 bool					extract_map(t_info *info);
 bool					is_valid_char(char c);
-bool					check_map_chars(t_info *info, int i);
+bool					check_map_chars(t_info *info, int i, int j);
 bool					check_map_closed(t_info *info);
 bool					check_open_file(char *path);
 void					update_player_position(t_info *info);
@@ -190,5 +191,6 @@ int						len_dbl_tab(char **tab);
 void					free_mlx(t_info *info);
 void					free_map_data(t_info *info);
 void					free_textures(t_info *info);
+bool					extract_rgb_2(t_info *info, char *line, int *c, int *f);
 
-#endif /* INCLUDES_H */
+#endif

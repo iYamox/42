@@ -1,9 +1,10 @@
-NAME= Fixed
+NAME = Fixed
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = main.cpp \
-		Fixed.cpp
-OBJS	= $(SRCS:.cpp=.o)
+SRCS = srcs/main.cpp \
+		srcs/Fixed.cpp
+
+OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 

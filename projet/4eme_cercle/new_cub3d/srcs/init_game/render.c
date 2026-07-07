@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/includes.h"
+#include "../../includes/cub3D.h"
 
 // Sélectionne la texture (NO, SO, EA, WE) à appliquer sur le mur impacté
 static t_texture	*get_wall_texture(t_info *info)

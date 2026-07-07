@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   pars_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amkhelif <amkhelif@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 13:23:12 by amkhelif          #+#    #+#             */
-/*   Updated: 2026/07/03 15:37:20 by amkhelif         ###   ########.fr       */
+/*   Updated: 2026/07/06 17:17:36 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/includes.h"
+#include "../../includes/cub3D.h"
 
 static bool	check_neighbors(t_info *info, int y, int x)
 {
@@ -21,19 +21,15 @@ static bool	check_neighbors(t_info *info, int y, int x)
 	if (y == 0 || y == last_line)
 		return (true);
 	len = ft_strlen(info->map_final[y - 1]);
-	if (x >= len || info->map_final[y - 1][x] == ' ' || info->map_final[y
-		- 1][x] == '\t')
+	if (x >= len || info->map_final[y - 1][x] == ' ' || info->map_final[y - 1][x] == '\t')
 		return (true);
 	len = ft_strlen(info->map_final[y + 1]);
-	if (x >= len || info->map_final[y + 1][x] == ' ' || info->map_final[y
-		+ 1][x] == '\t')
+	if (x >= len || info->map_final[y + 1][x] == ' ' || info->map_final[y + 1][x] == '\t')
 		return (true);
-	if (x == 0 || info->map_final[y][x - 1] == ' ' || info->map_final[y][x
-		- 1] == '\t')
+	if (x == 0 || info->map_final[y][x - 1] == ' ' || info->map_final[y][x - 1] == '\t')
 		return (true);
 	len = ft_strlen(info->map_final[y]);
-	if (x + 1 >= len || info->map_final[y][x + 1] == ' ' || info->map_final[y][x
-		+ 1] == '\t')
+	if (x + 1 >= len || info->map_final[y][x + 1] == ' ' || info->map_final[y][x + 1] == '\t')
 		return (true);
 	return (false);
 }
@@ -75,8 +71,7 @@ static bool	flood_fill(char **map, int y, int x, int max_y)
 	if (map[y][x] == '1' || map[y][x] == 'V')
 		return (false);
 	map[y][x] = 'V';
-	if (flood_fill(map, y - 1, x, max_y) || flood_fill(map, y + 1, x, max_y)
-		|| flood_fill(map, y, x - 1, max_y) || flood_fill(map, y, x + 1, max_y))
+	if (flood_fill(map, y - 1, x, max_y) || flood_fill(map, y + 1, x, max_y) || flood_fill(map, y, x - 1, max_y) || flood_fill(map, y, x + 1, max_y))
 		return (true);
 	return (false);
 }

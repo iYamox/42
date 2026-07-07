@@ -6,13 +6,13 @@
 /*   By: amkhelif <amkhelif@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/26 15:29:07 by amkhelif          #+#    #+#             */
-/*   Updated: 2026/07/03 18:02:01 by amkhelif         ###   ########.fr       */
+/*   Updated: 2026/07/06 13:13:48 by amkhelif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/includes.h"
+#include "../../includes/cub3D.h"
 
-// centre le joueur dans sa case 
+// centre le joueur dans sa case
 void	init_player(t_info *info)
 {
 	info->pos_x = (double)info->p_x + 0.5;
@@ -23,7 +23,7 @@ void	init_player(t_info *info)
 		init_player_v2(info);
 }
 
-// initalise angle de vue du joeur esr ca direction de marche 
+// initalise angle de vue du joeur esr ca direction de marche
 void	init_player_v1(t_info *info)
 {
 	if (info->p_dir == 'N')
@@ -42,7 +42,7 @@ void	init_player_v1(t_info *info)
 	}
 }
 
-// initalise angle de vue du joeur esr ca direction de marche 
+// initalise angle de vue du joeur esr ca direction de marche
 void	init_player_v2(t_info *info)
 {
 	if (info->p_dir == 'E')
