@@ -5,23 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/07 13:06:33 by amary             #+#    #+#             */
-/*   Updated: 2026/07/08 16:57:07 by amary            ###   ########.fr       */
+/*   Created: 2026/07/08 18:16:39 by amary             #+#    #+#             */
+/*   Updated: 2026/07/08 19:24:45 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Fixed.hpp"
+#include "../includes/ClapTrap.hpp"
 
-int main(void)
+int	main(void)
 {
-	Fixed 		a;
-	Fixed const b(Fixed(5.05f) * Fixed(2));
+	ClapTrap RobotA("Alexandre");
+	ClapTrap RobotB("Matthieu");
 
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << Fixed::max(a, b) << std::endl;
+	RobotA.attack("Matthieu");
+	RobotB.takeDamage(15);
+	
+	RobotB.beRepaired(3);
+	return (0);
 }
