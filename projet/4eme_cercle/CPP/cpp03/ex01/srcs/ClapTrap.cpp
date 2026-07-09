@@ -6,11 +6,14 @@
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 18:24:42 by amary             #+#    #+#             */
-/*   Updated: 2026/07/08 19:22:21 by amary            ###   ########.fr       */
+/*   Updated: 2026/07/09 18:12:06 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ClapTrap.hpp"
+
+
+/* ===================== Constructeur ===================== */
 
 ClapTrap::ClapTrap()
 {
@@ -20,6 +23,7 @@ ClapTrap::ClapTrap()
 	_AttackDamage = 0;
 	_EnergyPoint = 10;
 	_health = 10;
+	_HealthMax = 10;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &cpy)
@@ -30,6 +34,7 @@ ClapTrap::ClapTrap(const ClapTrap &cpy)
 	this->_AttackDamage = cpy._AttackDamage;
 	this->_EnergyPoint = cpy._EnergyPoint;
 	this->_health = cpy._health;
+	this->_HealthMax = cpy._HealthMax;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &other)
@@ -42,6 +47,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 		this->_AttackDamage = other._AttackDamage;
 		this->_EnergyPoint = other._EnergyPoint;
 		this->_health = other._health;
+		this->_HealthMax = other._HealthMax;
 	}
 	return (*this);
 }
@@ -54,12 +60,10 @@ ClapTrap::ClapTrap(std::string name)
 	_AttackDamage = 0;
 	_EnergyPoint = 10;
 	_health = 10;
+	_HealthMax = 10;
 }
 
-ClapTrap::~ClapTrap()
-{
-	std::cout << "Destructor called" << std::endl;
-}
+/* ===================== Fonction ===================== */
 
 void	ClapTrap::attack(const std::string &target)
 {
@@ -96,10 +100,10 @@ void	ClapTrap::beRepaired(unsigned int amount)
 		std::cout << "can't repaired zebi" << std::endl;
 		return ;
 	}
-	if ((amount + _health) > 10)
+	if ((amount + _health) > _HealthMax)
 	{
 		std::cout << "Health is max" << std::endl;
-		_health = 10;
+		_health = _HealthMax;
 		_EnergyPoint--;
 		return ;
 	}
@@ -111,4 +115,18 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	}
 
 	std::cout << "Available energy " << _EnergyPoint << std::endl;
+}
+
+/* ===================== GETTER ===================== */
+
+unsigned int ClapTrap::get_AttackDamage()
+{
+	return (_AttackDamage);
+}
+
+/* ===================== Destructeur ===================== */
+
+ClapTrap::~ClapTrap()
+{
+	std::cout << "Destructor called" << std::endl;
 }

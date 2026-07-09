@@ -5,14 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/08 20:18:06 by amary             #+#    #+#             */
-/*   Updated: 2026/07/09 18:12:47 by amary            ###   ########.fr       */
+/*   Created: 2026/07/09 00:00:00 by amary             #+#    #+#             */
+/*   Updated: 2026/07/09 18:15:53 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ScavTrap.hpp"
-
-/* ===================== Constructeur ===================== */
 
 ScavTrap::ScavTrap()
 {
@@ -49,8 +47,10 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &other)
 	return (*this);
 }
 
-/* ===================== Fonction ===================== */
-
+ScavTrap::~ScavTrap()
+{
+	std::cout << "ScavTrap destructor called" << std::endl;
+}
 
 void	ScavTrap::attack(const std::string &target)
 {
@@ -68,11 +68,4 @@ void	ScavTrap::attack(const std::string &target)
 void	ScavTrap::guardGate()
 {
 	std::cout << _Name << " is now in Gate keeper mode" << std::endl;
-}
-
-/* ===================== Destructeur ===================== */
-
-ScavTrap::~ScavTrap()
-{
-	std::cout << "ScavTrap destructor called" << std::endl;
 }

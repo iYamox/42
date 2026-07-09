@@ -5,30 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/08 18:24:42 by amary             #+#    #+#             */
-/*   Updated: 2026/07/09 18:07:24 by amary            ###   ########.fr       */
+/*   Created: 2026/07/09 00:00:00 by amary             #+#    #+#             */
+/*   Updated: 2026/07/09 18:18:39 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ClapTrap.hpp"
 
-/* ===================== Constructeur ===================== */
-
 ClapTrap::ClapTrap()
 {
 	std::cout << "Default constructor called" << std::endl;
-	
+
 	_Name = "None";
 	_AttackDamage = 0;
 	_EnergyPoint = 10;
-	_health = 10;
 	_HealthMax = 10;
+	_health = 10;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &cpy)
 {
 	std::cout << "copy constructor called" << std::endl;
-	
+
 	this->_Name = cpy._Name;
 	this->_AttackDamage = cpy._AttackDamage;
 	this->_EnergyPoint = cpy._EnergyPoint;
@@ -54,7 +52,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 ClapTrap::ClapTrap(std::string name)
 {
 	std::cout << "constructor by name called" << std::endl;
-	
+
 	_Name = name;
 	_AttackDamage = 0;
 	_EnergyPoint = 10;
@@ -66,8 +64,6 @@ ClapTrap::~ClapTrap()
 {
 	std::cout << "Destructor called" << std::endl;
 }
-
-/* ===================== Fonction ===================== */
 
 void	ClapTrap::attack(const std::string &target)
 {
@@ -91,20 +87,20 @@ void	ClapTrap::takeDamage(unsigned int amount)
 		_health = 0;
 	else
 		_health -= amount;
-	
+
 	std::cout << "Heal is " << _health << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
 	std::cout << "beRepaired called" << std::endl;
-	
+
 	if (_EnergyPoint < 1)
 	{
 		std::cout << "can't repaired zebi" << std::endl;
 		return ;
 	}
-	if ((amount + _health) >= _HealthMax)
+	if ((amount + _health) > _HealthMax)
 	{
 		std::cout << "Health is max" << std::endl;
 		_health = _HealthMax;

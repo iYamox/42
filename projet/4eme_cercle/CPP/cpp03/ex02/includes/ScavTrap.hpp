@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/08 20:18:08 by amary             #+#    #+#             */
-/*   Updated: 2026/07/09 17:22:34 by amary            ###   ########.fr       */
+/*   Created: 2026/07/09 00:00:00 by amary             #+#    #+#             */
+/*   Updated: 2026/07/09 00:00:00 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,8 @@ class ScavTrap : public ClapTrap
 		ScavTrap &operator=(const ScavTrap &other);
 		~ScavTrap();
 
-		/* ================== Fonction =================== */
-
 		void	attack(const std::string &target); // C'est pas la meme que ClapTrap
 		void	guardGate();
 };
-
 
 #endif
