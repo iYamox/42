@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dog.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/16 13:58:49 by amary             #+#    #+#             */
-/*   Updated: 2026/07/16 17:54:13 by amary            ###   ########.fr       */
+/*   Created: 2026/07/16 17:15:50 by amary             #+#    #+#             */
+/*   Updated: 2026/07/16 17:31:05 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
-#include "animal.hpp"
-#include "Brain.hpp"
+#include <iostream>
+#include <string.h>
 
-class Dog : public Animal
+class Brain
 {
 	private :
-		Brain *_brain;
-
+		std::string ideas[100];
 	public :
-		Dog();
-		Dog(const Dog &copy);
-		Dog &operator=(const Dog &other);
-		~Dog();
+		Brain();
+		Brain(const Brain &copy);
+		Brain &operator=(const Brain &other);
+		~Brain();
 
-		std::string getType(void) const;
-		void		makeSound(void) const;
-
-		/* ============ Brain access (for deep copy testing) ============ */
-
-		void		setIdea(int index, const std::string &idea);
-		std::string	getIdea(int index) const;
+		std::string *getIdeas(void);
 };
 
 #endif
