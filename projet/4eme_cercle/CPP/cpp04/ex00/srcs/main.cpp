@@ -6,7 +6,7 @@
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 14:31:21 by amary             #+#    #+#             */
-/*   Updated: 2026/07/16 16:26:49 by amary            ###   ########.fr       */
+/*   Updated: 2026/07/16 19:32:04 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,14 @@ int main()
 	delete (j);
 	delete (i);
 	delete (meta);
+
+	std::cout << "\n--- Wrong test ---" << std::endl;
+
+	WrongAnimal wrongMeta;
+	WrongCat wrongCat;
+	const WrongAnimal &wrongRef = wrongCat;
+
+	std::cout << wrongRef.getType() << " " << std::endl;
+	wrongRef.makeSound();
+	wrongMeta.makeSound();
 }
