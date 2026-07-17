@@ -6,7 +6,7 @@
 /*   By: amary <amary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 14:31:21 by amary             #+#    #+#             */
-/*   Updated: 2026/07/16 18:53:42 by amary            ###   ########.fr       */
+/*   Updated: 2026/07/17 13:33:08 by amary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int main()
 {
 	Animal *Zoo[6];
 	
+	Animal *meta = new(Animal)''
 	for (int i = 0; i < 6; i++)
 	{
 		if (i % 2)
@@ -31,19 +32,4 @@ int main()
 		Zoo[i]->makeSound();
 	for (int i = 0; i < 6; i++)
 		delete Zoo[i];
-
-	std::cout << "\n--- Deep copy test ---" << std::endl;
-
-	Dog original;
-	original.setIdea(0, "original idea");
-
-	Dog copy(original); // copy constructor
-
-	std::cout << "original idea: " << original.getIdea(0) << std::endl;
-	std::cout << "copy idea before change: " << copy.getIdea(0) << std::endl;
-
-	original.setIdea(0, "changed idea");
-
-	std::cout << "original idea after change: " << original.getIdea(0) << std::endl;
-	std::cout << "copy idea after change: " << copy.getIdea(0) << std::endl;
 }
