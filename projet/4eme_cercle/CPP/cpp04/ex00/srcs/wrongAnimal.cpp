@@ -20,6 +20,7 @@ WrongAnimal::WrongAnimal()
 
 WrongAnimal::WrongAnimal(const WrongAnimal &copy)
 {
+	std::cout << "WrongAnimal copy constructor called" << std::endl;
 	_type = copy._type;
 }
 
